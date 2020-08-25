@@ -14,7 +14,7 @@ for(c in 1:length(collects)){
   recollect = recollects[c]
   Nst = NULL
   #repeat each marking effort 100 times
-  for(i in 1:100){
+  for(i in 1:1000){
     #create initial population
     pop1 = data.frame(uid = seq(1, popsize, 1), capture = rep(0, popsize), recapture = rep(0, popsize))
     #initial marking
@@ -25,7 +25,7 @@ for(c in 1:length(collects)){
     Nst = c(Nst, ((sum(pop1$capture)+1)*(collect+1))/((sum(pop1$recapture[pop1$capture==1])+1)))
   }
   #record mean/sd for pop1 size estimates
-  writeout = c(collect, recollect, mean(Nst), sd(Nst))
+  writeout = c(collect, recollect, mean(Nst), sd(Nst), quantile(Nst, probs=0.975), quantile(Nst, probs=0.025))
   #add these values to others
   OUT = rbind(OUT, writeout)
 }
