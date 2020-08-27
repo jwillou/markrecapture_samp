@@ -45,4 +45,4 @@ segments(x0=c(o$totalgenos - off), x1=c(o$totalgenos + off), y0=o$NstLL, y1=o$Ns
 segments(x0=c(o$totalgenos - off), x1=c(o$totalgenos + off), y0=o$NstUL, y1=o$NstUL, col=alpha("firebrick3", 0.8))
 segments(x0=o$totalgenos, x1=o$totalgenos, y0=o$NstLL, y1=o$NstUL, col=alpha("firebrick3", 0.8))
 
-
+write.table(o, "markrecapture_samp/simulationoutput.csv", row.names=F, col.names=T, sep=",")
